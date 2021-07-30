@@ -1,0 +1,983 @@
+DomainMOD CHANGELOG
+===================
+v4.18.01    2021-07-25
+- Updated Force HTTPS to default to No
+
+v4.18.0    2021-07-22
+- Added Dark Mode
+- Added Feedback page
+- Added a strong Content Security Policy
+- Added the ability to disable the CSP headers
+- Added ssl.php Helper
+- Upgraded AdminLTE from v2.4.5 to v3.1.0
+- Improved session security on password change
+- Various UI updates and improvements
+
+v4.17.0    2021-06-26
+- Added URL Custom Field Type
+- Added exchangerate.host currency conversion support
+- Added numerous security measures
+  - Enabled X-Content-Type-Options nosniff for security
+  - Enabled X-XSS-Protection header to help prevent XSS
+  - Enabled session.cookie_httponly for security
+  - Cast some variables as integers for XSS protection
+  - Implemented anti-frame HTTP headers
+  - Updated $segid to be cast as integer for security
+  - Disabled autocomplete for password fields
+- Updated translations
+- Updated Composer packages
+- Code cleanup
+
+v4.16.0    2020-11-02
+- Added multilingual support
+
+v4.15.0    2020-05-17
+- Added Gandi API support
+- Added support for more than 100 domains with Namecheap API
+- Added some text validation to Asset pages
+- Added GitHub "Stale" App
+- Changed PHP requirement from 5.3.2 to 5.5
+- Fixed domain sanitization for IDN compatibility
+- Fixed Integrity constraint violation error
+- Fixed SSL keyword search
+- Fixed unbuffered query issue (again)
+- Sanitized SSL keyword search
+- Reverted some identical operators
+- Removed Scrutinizer-CI badges from README
+- Code cleanup
+
+v4.14.0    2020-05-10
+- Added Backup & Restore
+- Added the ability to change the email signature
+- Updated Name.com API to v4
+- Changed delete links to modals
+- Switched password hashing from MD5 to bcrypt
+- Removed Free Currency Converter API
+- Upgraded Composer
+- Upgraded GJClasses (0.27.0 -> 0.29.0)
+- Upgraded PHPMailer (5.2.27 -> 5.2.28)
+- Installed mysql-import (1.0.1)
+- Installed uploader (0.1.8)
+- Installed mysqldump-php (2.9)
+- Fixed various vulnerabilities (including CVE-2019-15811)
+
+v4.13.0    2019-02-09
+- Added Custom Domain Fields to main Domains page
+- Added Custom SSL Fields to main SSL page
+- Added the ability to change Currency Converter
+- Fixed Segment filtering bug when no active domains
+- Switched placeholder date to unix epoch time
+- Switched DEMO_INSTALLATION from integer to boolean
+- Switched $from_cron from integer to boolean
+- Switched 'Upgrade Available' message colour
+- Updated text sanitization to use GJClasses
+- Updated redirect on various settings pages
+- Updated Conversion class
+- Updated sendExpirations & checkExpiring classes
+- Updated Composer
+- Updated GJClasses (0.21.0 -> 0.27.0)
+- Updated PHPMailer (5.2.26 -> 5.2.27)
+
+v4.12.0    2019-02-03
+- Added Sanitize class
+- Added Unsanitize class
+- Added Validate class
+- Added GJClasses Composer package
+- Added Date Picker to Add Domain
+- Added Date Picker to Add SSL Certificate
+- Added Contributing Guidelines
+- Implemented GJClasses for currency conversions
+- Updated Composer
+- Updated Security section of README
+- Updated README
+- Updated copyright
+- Validations to prevent Cross-Site Scripting
+- Validations to prevent SQL Injection
+- Further sanitize user input
+- Linked TLD results to registrar fee edit
+- Showed default currency with Fee heading
+- Refactored each() statements for PHP 7.2 compatibility
+- Moved pageTitle method from System to Layout
+- Removed unused getConversionRate method
+- Removed unused Form class calls
+- Code cleanup
+
+v4.11.01   2018-09-11
+- Implemented Unbuffered Query fix
+
+v4.11.0    2018-08-29
+- Added DW table checks to prevent fatal errors
+- Added MYSQL_ATTR_USE_BUFFERED_QUERY true to PDO options
+- Added MySQL mode declaration during DB connection
+- Added MySQL mode to System Information page
+- Fixed Textarea field display on add SSL page
+- Fixed readOnlyCheck method
+- Fixed add segment URL
+- Fixed search_for search box code
+
+v4.10.0    2018-05-27
+- Added date picker to all expiry date fields
+- Added DIR_TEMP constant to init.inc.php
+- Added /temp folder to .gitignore
+- Added date picker to all expiry date fields
+- Added a short version of the system requirements
+- Added File class
+- Updated how the date range picker functions
+- Updated type casting from (integer) to (int)
+- Fixed CVE-2018-11403
+- Fixed CVE-2018-11404
+
+v4.09.03    2018-04-09
+- Added ipify support for remote IP address reporting
+
+v4.09.02    2018-04-09
+- Updated error_get_last for PHP 5.3 compatibility
+- Updated GoDaddy API domain checks
+- Updated NameSilo API log details
+
+v4.09.01    2018-04-08
+- Fixed upgrade recording
+
+v4.09.00    2018-04-07
+- Added Requirements to README
+- Added Code of Conduct to README
+- Added PHP mail() wrapper
+- Added logging to email sends
+- Expanded the installation process
+- Updated Composer (1.4.1 -> 1.4.2)
+- Updated PHPMailer (5.2.25 -> 5.2.26)
+- Updated PHP Cron Expression Parser (1.2.0 -> 1.2.1)
+- Switched from Fixer.io to Currency Converter API
+- Updated Email Send code
+- Updated remote file retrieval code
+- Updated System Information page with more data
+- Updated logging to include more information
+- Updated Registrar API writeups
+- Various fixes & code cleanup
+
+v4.08.00    2017-11-06
+- Replaced Yahoo Finance API with Fixer.io API
+- Changed GoDaddy domain list limit to 1,000
+- Reordered Dashboard Panels
+- Added lowercaseTlds method to Maintenance class
+- Removed line break from end of version.txt
+
+v4.07.00    2017-10-01
+- Finished converting MySQLi to PDO
+- Implemented database transactions
+- Implemented Database class
+- Implemented Upgrade class
+- Updated Dashboard panels
+- Updated rules in checkFormat method
+- Updated PHPMailer (5.2.23 -> 5.2.25)
+- Fixed expiration email URLs
+
+v4.06.01    2017-06-26
+- Fixed bug in installation script
+
+v4.06.00    2017-06-26
+- Migrated database tables from MyISAM to InnoDB
+- Finished converting main queries to PDO
+- Switched to Composer for PSR-4 Autoloading
+- Updated Data Warehouse classes
+- Updated DOCTYPE
+- Code cleanup
+
+v4.05.03    2017-06-03
+- Added Helper File mechanism
+- Added local logging of PHP errors
+- Added error reporting options
+- Updated System Information page
+- Code Cleanup (Converting to PDO)
+
+v4.05.02    2017-05-30
+- Fixed Debug process
+
+v4.05.01    2017-05-29
+- Fixed bulk domain renewal bug
+- Updated DB execute syntax for PHP 5.3 compatibility
+- Updated Add & Edit User processes
+- Added timeBasicMinusDays method to Time class
+- Code cleanup
+
+v4.05.00    2017-05-27
+- Added Debugging Mode
+- Cosmetic changes
+- Code cleanup
+
+v4.04.001    2017-05-14
+- Fixed install script
+- Added link to Domain Queue during first run
+- Updated version info in footer
+- Changed button formatting
+
+v4.04.000    2017-05-13
+- Added Date and Time Stamp Custom Field Types
+- Updated DB upgrade script to run from command line
+- Changed email encoding from iso-8859-1 to UTF-8
+- Updated Composer (? -> 1.4.1)
+- Updated PHP Cron Expression Parser (1.1.0 -> 1.2.0)
+- Updated PHPMailer (5.2.16 -> 5.2.23)
+- Code cleanup
+
+v4.03.002    2017-04-20
+- Added Above.com API
+- Added WHM API Token support
+- Updated Name.com and DreamHost classes
+- Code cleanup
+
+v4.03.001    2017-04-13
+- Added timestamp to Task Scheduler page
+- Added Log class
+- Updated Fabulous API
+- Added Freenom API
+- Added DreamHost API
+
+v4.03.000    2017-04-07
+- Increased SMTP Port form field from 3 to 5
+- Updated Maintenance class to lowercase domains
+- Updated Domain Queue maintenance tasks
+- Updated highlightText method
+- Added Softaculous to README
+- Added Documentation (User Guide)
+
+v4.02.001    2016-12-08
+- Updated GoDaddy API domain retrieval to 10,000
+- Increased SMTP port length from 3 to 5
+- Updated currency symbol for Turkish Lira
+- Changed Maintenance task order
+- Removed URL encoding from footer redirects
+- Updated default DATETIME values in install script
+
+v4.02.000    2016-11-01
+- Fixed SMTP Support version number
+
+v4.01.008    2016-11-01
+- Added PHPMailer class
+- Added SMTP support
+- Added text versions of system emails
+- Fixed post-login redirect bug
+- Formatting updates
+
+v4.01.007    2016-10-27
+- Updated default values for DATETIME fields
+- Changed fee and conversion rate data types
+- Removed time change form from non-daily events
+- Updated htmlentities to specify encoding type
+- Fixed edit SSL page (retrieved field order)
+
+v4.01.006    2016-10-01
+- Allow admins to edit user profile settings
+- Updated Admin, Maintenance & Settings menus
+- Formatting updates
+- Fixes
+
+v4.01.005    2016-09-03
+- Added read-only user data to user export
+- Added inactive and read-only user designations
+- Security Updates
+
+v4.01.004    2016-08-29
+- Security Updates
+- Updated Task Scheduler 'run' command
+
+v4.01.003    2016-08-26
+- Updated broken maintenance URLs
+- Added array_unique to domain list splitting
+- Updated bulk domain list processing
+
+v4.01.002    2016-08-25
+- Updated installation check
+- Updated installation process
+- Added default values to DATETIME fields
+
+v4.01.001    2016-04-19
+- Updated Fabulous API call in Domain Queue
+- Added Read-Only Users
+
+v4.01.000    2016-04-08
+- Added Domain Queue for automatic domain imports
+- Added support for saving registrar API keys
+- Added asset creation tracking
+- Added email address to SSL provider accounts
+- Added Reseller ID to registrar accounts
+- Added Reseller ID to SSL provider accounts
+- Updated the installation process
+- Updated password resets to allow email addresses
+- Database cleanup
+- Security cleanup
+
+v4.00.000    2016-03-14
+- DomainMOD v4 Release -- Complete Redesign
+
+v3.0.9    2016-02-09
+- Moved Domain & SSL results within while statement
+- Reset is_running flag before running cron jobs
+
+v3.0.8    2016-02-08
+- Added Auto Renew field to Domains
+- Synchronized software and database versions
+- Renamed Timestamp class to Time class
+- Added search string to SSL status dropdown
+- Fixed Registrar Account dropdown list bug
+- Removed leading period from TLD dropdown list
+
+v3.0.7    2015-10-10
+- Check for custom field data
+- Updated redirect URL after updating System Settings
+- Removed extra $q->fetch call
+- Fixed the password email logic
+
+v3.0.6    2015-07-27
+- Added an Expiry Date filter to Domain & SSL Certificate searches
+
+v3.0.5    2015-07-06
+- Added support for user-based time zones
+
+v3.0.4    2015-07-04
+- Added a Task Scheduler for scheduling system jobs
+- Added Composer support files for vendor autoloading
+- Added PHP Cron Expression Parser library to process Task Scheduler dates and times
+- Integrated cron jobs into the Task Scheduler and merged all cron jobs into a single file
+- Updated maintenance tasks to cover more data
+- Renamed and changed the location of various files
+- Code cleanup and cosmetic changes
+
+v3.0.3    2015-07-02   6d85e7b6d9e78b435ab73f85868230f9fb374fe7
+- Completely re-wrote how the Data Warehouse processes and displays data
+- Added a system notice feature to display important information
+- Updated maintenance tasks system-wide to make things run smoother
+- Optimized the database upgrade process to make it faster
+- Cleaned up and rearranged some of the source code file locations
+- Renamed 'Control Panel' to 'Settings'
+
+v3.0.2    2015-06-30   da9a5bcd7be55c794b78a2ff99a5a1b14fdf8833
+- Modified the version system to use strings
+- Updated system-info.php to use $_SESSION['system_db_version'] instead of querying the database
+
+v3.0.1    2015-06-29   e828b6f748b642192f646f556a3f059b0945b596
+- Optimized the way DomainMOD checks for new versions
+- Deleted the now-redundant checkversion.php cron job
+- Optimized the way DomainMOD fixes invalid fees
+- Updated query logic of deleteUnusedFees method
+
+v3.0.0    2015-06-29   ad5a23efcd6493aca4ae89251c8efefd15b6fc28
+ - Unified the database and software versions
+ - Optimized the database update process
+
+v0.93.0   2015-06-28   694ec880c381c44e6a771efbf9724a390a6e0d21
+ - Cleaned up and organized a LOT of code
+ - Moved a lot of includes and random code into classes
+ - Renamed some files to make things more organized
+ - Added a Raw List features for the main Domain & SSL Certificate pages
+ - Updated deprecated HTML tags
+
+v0.92.2   2015-06-20   49b51e5628052f37ef4346b0dc8d12816e5712b3
+ - Fixed pagination bug on Domain & SSL Cert pages
+
+v0.92.1   2015-06-20   41d52903f1b5069cabcbaaa581786f7bcab3a326
+ - Continued cleaning up and refactoring the codebase
+ - Added Scrutinizer CI badges to README file
+ - Updated README formatting
+ - Continued converting database queries to prepared statements
+ - Added utf-8 Content Type meta header tag
+ - Updated the version check cron job
+ - Updated bind_param calls to use only variables
+
+v0.92.0   2015-05-11   ab605127c0b1852a0b146b8dcc2025e91844103a
+ - Updated all files to use new Autoloader class
+
+v0.91.5   2015-05-08   f9eba9d81ec1b00289eaf7c1072cdee38e4b8c4d
+ - Reformatted the DW potential problem report export
+
+v0.91.4   2015-04-27   2732aa8324d004c73821cb8368581be9118fb580
+ - Fixed export bug on SSL Certificate Renewal report
+
+v0.91.3   2015-04-27   f62e11499d8b8b420b2692a574ce8a483482ead5
+ - Fixed export bug on Domain Renewal report
+
+v0.91.2   2015-04-27   bc4b66ee99c32ed6309cbcbe82bffb95d3d332c6
+ - Fixed SSL provider fee report bug
+
+v0.91.1   2015-04-27   666b711bb2786e8d2137cd7eaca5bff4c463bb31
+ - Fixed registrar fee report bug
+
+v0.91.0   2015-04-21   bc988551af13eece6832734107e4b5d681a7ae45
+ - Fixed Segment list GROUP BY clause
+
+v0.89.0   2015-04-06   f93b7562cd0d06c47e3504892a43977df6c881cf
+ - Added a cron job to check for a newer version
+
+v0.88.0   2015-04-06   6ed1c2384783121a61c22e84e4a469508e388a15
+ - Added a login check to see if a newer version of DomainMOD is available for download
+
+v0.87.0   2015-03-28   ca7ed25bec28e80d44402d4f2741903c0f753147
+ - Added the ability to bypass the Data Warehouse intro
+
+v0.86.0   2015-03-28   33e6ae7dbe5f40f8988955659c5d166f944619cd
+ - Added the ability to hide Inactive Assets
+
+v0.85.1   2015-03-19   bd4e249eadaf59078426b660aa37ad3a2a0bdf3b
+ - Converted MySQL extension to MySQLi extension
+
+v0.85.0   2014-10-24   bcde9c7a4d336c4395fba52b252e0638b74b90fa
+ - Added Delete Unused Fees to Control Panel
+
+v0.84.2   2014-10-24   9828a8583bb7f888f1a0353b5cb78e7dbd45c5f1
+ - Updated Renewal & Fee Reports to use Total Cost
+
+v0.84.1   2014-10-24   9e04be46de401a63f197132ef2671ab50ea604f3
+ - Updated Reports to use the new Total Cost values
+
+v0.84.0   2014-10-24   083cc954029e6e0f9f597ab5aef3fa227acdad15
+ - Added Misc Fees & Total Cost to main SSL Certificate page export
+
+v0.83.0   2014-10-24   d6142f91edd23d14434c77621a4a73a23f412ebf
+ - Added Transfer, Privacy & Misc Fees to main Domains page export
+
+v0.82.4   2014-10-24   7f8f15c2d6b4c0ed1de741e0c74d4ca5f7d39036
+ - Updated main SSL Certificate page to use Total Cost
+
+v0.82.3   2014-10-24   a695e91c47d58aa7ada856e313f38a2a35ad7fa6
+ - Updated main Domains page to use Total Cost
+
+v0.82.2   2014-10-24   db4b4f6bb3c3621b71a8961ea1515bfd17ff944f
+ - Updated all Update Fee scripts to account for Total Cost
+
+v0.82.1   2014-10-24   84fbea9e007700cbd84d4b181691240c47c36063
+ - Fixed the SSL Fee backend functionality to match the Domain Fee backend
+
+v0.82.0   2014-10-24   49bf6a0388eca1c231e1abcb21b2a221ff9f1cb4
+ - Added Update SSL Fees link to Control Panel
+
+v0.81.0   2014-10-24   4ae06a290d2cbc1037346e1c1add16df6864bef4
+ - Updated all relevant pages to calculate Total Cost when a change requires it
+
+v0.80.0   2014-10-19   2d57db455299e406d9a5265009be2a7abcd8320c
+ - Added a Misc Fee to the Registrar & SSL Provider Fee Asset Pages
+
+v0.79.0   2014-10-19   a2b2b0f2cae142b60580d1799e0c7f592d1ad92b
+ - Added a WHOIS Privacy Fee to the Registrar Fees Asset Page
+
+v0.78.0   2014-10-19   c5bae7c3c2228e0c76776e65eb7a86514f76dd8f
+ - Implemented in-line editing of SSL Provider Fees
+
+v0.77.1   2014-10-19   f704608896d525efa0b01a8f93d8852f2a061336
+ - Implemented in-line editing of Registrar Fees
+
+v0.77.0   2014-10-18   d324a08f6c74e28d2efe7a91b1e5144f1a5c7e2d
+ - Added the ability to export Segments
+
+v0.76.0   2014-10-17   360ea5f6ba734ea8672e20afb0ac8d41f729468e
+ - Removed the code for the Software Updates section
+
+v0.75.0   2014-10-17   3b45dd19499e903654f3190e270a0a0bb3287160
+ - Added a cron job to fix domain fees
+
+v0.74.0   2014-10-14   9643de9a298f8cff3ef4916eb0991080aa21e8db
+ - Updated the Bulk Updater to allow for domain deletions
+
+v0.73.0   2013-06-16   14e78be88daf7809c9fb7d8636a0f02435e4e96f
+ - Added a CHANGELOG file to the project root
+
+v0.72.0   2013-06-01   b04a84dec4d13e8be7a6002ef80975d957ec5cbd
+ - Completely rebranded to DomainMOD
+ - The software needed a real name now that it's close to being released into the wild
+
+v0.71.0   2013-06-01   ac166c1212093deb73237cbb24ca6147234a62a3
+ - Implemented a Data Warehouse framework that allows you to import your WHM web server data
+
+v0.70.2   2013-06-01   cc6f57e7be377398488d1041323e0c2c0b056f18
+ - Added insert & update times to Segment result exports
+
+v0.70.1   2013-05-27   3b5ccdf747f25aacde000feee94f6798da7e0435
+ - Fixed a Domain & SSL Certificate search form bug that wasn't passing some of the form variables
+
+v0.70.0   2013-05-27   a24b1542533d5233457fa81344a0aef8bb05b7b8
+ - Completely reworked the file exporting system to use fputcsv in order to ensure proper CSV compatibility
+
+v0.69.1   2013-05-25   60722172c676272e7b33ff0c59dd2c4a7c27286a
+ - Renamed Bulk Actions to Bulk Updater
+
+v0.69.0   2013-05-25   92d990f26b53c288a537f646bc133905f51acfc8
+ - Added the ability for the user to create Custom Domain Fields
+
+v0.68.0   2013-05-20   703f75ea4b3c43167b8245acaf9b97a6a60247a5
+ - Updated the session process to have a unique name so that it doesn't interfere with any other unnamed sessions
+
+v0.67.1   2013-05-07   671f7763b79d49bcb83e3ac0fe5bf3d56bbba407
+ - Updated Web Hosting Assets to allow for saving the host's URL
+
+v0.67.0   2013-05-07   e37eca32e62c7d12190dcc26d49c2cc73224a0d1
+ - Added the SSL Certificate Cost by Domain report
+
+v0.66.0   2013-05-07   7ba5e290401296e3ecd96adabcc938ed8d4d8dfc
+ - Added the SSL Cost by IP Address report
+
+v0.65.0   2013-05-07   475b33ce6fb51f7ded32cdccf69595daa9fafaf3
+ - Added the Domain Cost by IP Address report
+
+v0.64.0   2013-05-07   80bd721e3efa6979d041ea29b57a3f9ae563c553
+ - Added the Domain Cost by Web Hosting Provider report
+
+v0.63.0   2013-05-07   9694131324fb85b78524e12c50192d4a9fdc7b5f
+ - Added the Domain Cost by DNS Profile report
+
+v0.62.0   2013-05-07   3aaa1698cbd6fc29464effbf6e31c68706f0e8b1
+ - Updated all of the display tables so that rows highlight when they're hovered over
+
+v0.61.2   2013-05-07   ce801ddecdbbbe95f1441776d666f4174ecbddee
+ - Updated the edit user page to display an error message if someone tries to delete themself
+
+v0.61.1   2013-05-07   e0435ae1f51eb6e289fb38170840d41f7da9dbef
+ - Updated the edit user page to display an error message if someone tries to delete the primary admin user
+
+v0.61.0   2013-05-07   3bb1eb450b4ef705414ce951e631a5e275d1f918
+ - Added an export option to the user list
+
+v0.60.1   2013-05-07   a85481f94aebebd3630a27752eccc4274a334d6f
+ - Renamed Admin Settings to System Settings
+
+v0.60.0   2013-05-07   ae955f3d50b5b386fc939d1c6249c7705c9fc8cf
+ - Added breadcrumbs to submenu system-wide
+
+v0.59.0   2013-05-06   1106e085035f4b1dacac3ad06b8be89c98886b3b
+ - Added an export option to every Asset page
+
+v0.58.2   2013-05-06   62baf912ea0086c85aea9eb017b6230849dead46
+ - Updated all forms so that they specify the maximum length for each field
+
+v0.58.1   2013-05-05   8b424685afbb71354221e4db8bff94b8f2a83a9a
+ - Fixed a bug on the main Domains page that was causing segment results to display incorrectly
+
+v0.58.0   2013-05-05   21aa5c71eae7e087561180c5138215527f84d86d
+ - Added a Software Updates section to the UI
+
+v0.57.1   2013-05-03   43220ceb7dc847a33d9d3705b321114f94d9e7a5
+ - Updated the login process to direct the user to a change password form if their password is new
+
+v0.57.0   2013-05-03   3a01b7b0713c51709ebcc20339671664584fc13f
+ - Updated the entire system to work with the new SSL Certificate defaults (IP Address, Category, Owner)
+
+v0.56.0   2013-05-02   aa6f70a0b01ada5a5bc2105297cbf398c2527401
+ - Completely reworked user settings
+
+v0.55.3   2013-05-02   96b730d0dee80ff2999db3beb6883c3d1449de36
+ - Renamed System Settings to Display Settings
+
+v0.55.2   2013-05-02   e926992165edd4354c0a9c8217888d6506dc1588
+ - Added the new default system & user settings to System Settings
+
+v0.55.1   2013-05-01   1ac2c469da9369dc3706f62dc65c2e5367ff7965
+ - Added the new default user settings as session variables in the login process
+
+v0.55.0   2013-05-01   67d14a5eeb30da04b18ac3643e755ae17738ba3b
+ - Updated the entire system to work with the new SSL IP Addresses and Categories
+
+v0.54.0   2013-05-01   67077cb051dc42ba58a119ae411ec085b9436127
+ - Completely reworked the main menu and created an Asset Management section for managing all web assets
+
+v0.53.0   2013-05-01   accb96214ec5eda4c5c8d856f353f387e2af8fc9
+ - Added the Cost by SSL Type report
+
+v0.52.0   2013-05-01   d75f3648e0f37ce7801e96e4b67ddca67561989e
+ - Added the Cost by TLD report
+
+v0.51.0   2013-04-30   090bbd5260341cd61613148c58e79bb01e2c55c8
+ - Added the SSL Cost by Owner report
+
+v0.50.0   2013-04-30   f2b05233945ed4d92342045108d056944d8a618b
+ - Added the Domain Cost by Owner report
+
+v0.49.0   2013-04-30   762f3ee134c7450bb63d37491426c01b2164d15a
+ - Added the Cost by Provider report
+
+v0.48.0   2013-04-30   f80dfd4afbe41ef363473a411ff8b636e820cb10
+ - Added the Cost by Registrar report
+
+v0.47.0   2013-04-30   9c5c40f1e7ced429b58aae6e3563d6469c613446
+ - Added the SSL Cost by Category report
+
+v0.46.0   2013-04-30   9bde9414473d61bd2ce9c03a5d9e9e57ef9d7604
+ - Added the Domain Cost by Category report
+
+v0.45.2   2013-04-30   8e9bee8295d0d2e467c5fb509fe17c7577368587
+ - Fixed a System Settings bug that was causing conversions to show up wrong after switching default currencies
+
+v0.45.1   2013-04-29   c9ef4bc9400cdab0c5d650edcfcd285e981a6183
+ - Updated the search boxes on the main Domain & SSL Certificate pages to use DIVs instead of TABLEs
+
+v0.45.0   2013-04-29   76ac4d3923fb0b23d8066f3bac5b37cfefb3d822
+ - Completely reworked currencies to be user-based instead of system-based
+
+v0.44.6   2013-04-28   553187721cc4b485b581400425117b087627f428
+ - Updated the login process to use the user's default currency instead of the system's default currency
+
+v0.44.5   2013-04-28   b535a387bbb4e35ccc134d2613576a2df87abba2
+ - Updated the login process to run the database update check script
+
+v0.44.4   2013-04-28   877e86d96c876aa52fbb04ad1f0b2fb7b6cd1b7b
+ - Updated the main Domain page export to display the segment filter result numbers
+
+v0.44.3   2013-04-28   889059180eb81f06c78335d4d47325341c67d563
+ - Updated the main Domain & SSL Certificate page exports to display the search filters
+
+v0.44.2   2013-04-28   0583ed0f728ec87c02546066c9946da8dbe5f355
+ - Updated the main Domain & SSL Certificate pages to display the total cost for your search results
+
+v0.44.1   2013-04-28   98a68d3fefaea91112bb1bcd06bef0ebb8ef8f39
+ - Moved the Domain & SSL Certificate Renewal pages to the Reporting section
+
+v0.44.0   2013-04-28   a61ffdd3ee72e29b3987eff898ff19907d34fd51
+ - Updated the Domain & SSL Certificate Renewal pages to display and export a lot more information
+
+v0.43.0   2013-04-27   4559d1a75b85f7e36337d2a66a6423d7cea722d7
+ - Added the SSL Provider Fee Breakdown report
+
+v0.42.0   2013-04-27   f48223ce0d3f51f97aa864e9ee8041f7783babb5
+ - Added the Registrar Fee Breakdown report
+
+v0.41.3   2013-04-27   99f0e88e147fb324d7adb09541b923158c03373c
+ - Updated the currency formatting and conversion process to be more portable
+
+v0.41.2   2013-04-27   5802533e4c429fceaae300f86b4659a41a239cf7
+ - Updated exports so that they displayed UTF-8 characters properly
+
+v0.41.1   2013-04-27   50438c04c24a303ef89fb8650e90707b3c982286
+ - Updated the currency conversion cron job to check for currencies associated with SSL certificates
+
+v0.41.0   2013-04-27   636696e92749073ba3644f2d82279b667f636e15
+ - Added a cron job for updating all currency conversions
+
+v0.40.2   2013-04-27   95efb8e837745373c60ea301fc94ce5496a12b35
+ - Added a 'View All' option to the Domain & SSL Certificate Renewal pages
+
+v0.40.1   2013-04-26   336e6a2c119fa20b7b524b3749d0c5f377184e72
+ - Updated the System Settings to allow for the default currency to be set
+
+v0.40.0   2013-04-26   dabb9297006345a51674e0cb92b89431762f8755
+ - Updated the database connections to support the UTF-8 character set
+
+v0.39.0   2013-04-26   f1b628540bdfd64440b39e36ff9b7e844a424f1b
+ - Added the SSL Cost Breakdown by Month report
+
+v0.38.0   2013-04-26   c0ff85e855c211850f41ab203497413e6e0ea91c
+ - Added the Domain Cost Breakdown by Month report
+
+v0.37.1   2013-04-26   60cf4eda9206ad74945378a89b3e95547d9c0e7e
+ - Updated the currency formatting and conversion process for better compatibility with windows servers
+
+v0.37.0   2013-04-25   2cabdd770ef5cdbc0222888b84d8f6483f8a905a
+ - Added a Reporting section
+
+v0.36.3   2013-04-24   41d0110f693a1a1700d7dc05111e5f85d1f537a7
+ - Updated the Segment Filter result exports to include the initial fee
+
+v0.36.2   2013-04-24   99bd12f727d9b68401e980ef4d15798524de92ab
+ - Updated the Domain Renewal export to include the initial fee
+
+v0.36.1   2013-04-24   706204f91019891f2db9a658d091209277b0d09c
+ - Updated the SSL Certificate Renewal export to include the initial fee
+
+v0.36.0   2013-04-24   8b390c415c9bd16e9849cbf4a618896e88bd4f6e
+ - Added the ability to manage domain registrar transfer fees
+
+v0.35.0   2013-04-24   967525740d9ac2823e5dba8dc42a42cf25ee500b
+ - Added the ability to view notes in a new window instead of the text area on the domain & SSL certificate add & edit pages
+
+v0.34.2   2013-04-23   f1103be22b45a406b7eb94198dc02e06d2cda4f2
+ - Updated the domain format check script to allow for ASCII versions of IDNs
+
+v0.34.1   2013-04-21   a26079d2bb5b33cb5b949d3752914c9c177d97a1
+ - Cleaned up all SQL queries and removed all unnecessary 'active' fields
+
+v0.34.0   2013-04-20   90f93225f1165d2f6b3f49dc1a09dfe8b56882a0
+ - Decommissioned the Domain Status and Status Notes fields, as they were redundant and confusing
+
+v0.33.6   2013-04-20   c9bb9aa892b633c4c474727150ce53c4243b0b90
+ - Renamed Price to Fee in domain & SSL certificate renewal exports
+
+v0.33.5   2013-04-20   825f7c17e6e489ea5aee0c6f2f824ad3d1d25f7f
+ - Fixed a bug that made it so the default currency isn't displayed in domain & SSL renewal exports
+
+v0.33.4   2013-04-20   967ebba64e81d99c5b45a8f675d9e8a4b25852d3
+ - Updated Bulk Actions to denote required fields
+
+v0.33.3   2013-04-20   1a279a8d5193c2bae27e9f94f1cc657f4e6efc0b
+ - Updated all of the add & edit pages to denote required fields
+
+v0.33.2   2013-04-20   050ba65e682dfc1ba950d70acfddb0170a330ab5
+ - Updated the DNS Profile add & edit pages to allow the user to enter the IP addresses associated with the DNS servers
+
+v0.33.1   2013-04-19   f59c28c8feb3fe0e387fc4f745ff95aedec136f8
+ - Updated the daily expiration email process so that the number of days to include in the email can be changed in the Control Panel
+
+v0.33.0   2013-04-19   8fe77acc3acd6fd051f0f72fff18ecf40c1103aa
+ - Added the ability to manage passwords for Domain Registrar & SSL Provider Accounts
+
+v0.32.1   2013-04-19   5973f86058800aa148b4e7701d188f831371413a
+ - Fixed a bug that caused every newly-saved IP Address to automatically become the system default
+
+v0.32.0   2013-04-19   d8b0976a5702cd12918ceb62ec6cf50017b77647
+ - Added support for managing Web Hosting providers
+
+v0.31.5   2013-04-18   585432de4c4d9335d04d3197a53b9bc7268bf2b7
+ - Fixed a bug on the SSL Certificate Renewals page that was causing exports to return zero results
+
+v0.31.4   2013-04-16   b73dbb814c31c1108f861cc274a160b6a26d174c
+ - Added a DOCTYPE declaration to every page
+
+v0.31.3   2013-04-16   8fd1d13ee7931629190b3dac2720a72fc5f75385
+ - Updated the system-wide headers to use DIVs instead of TABLEs
+
+v0.31.2   2013-04-16   20d6395d8ecbc0445f308ca8f59171fb0408aee7
+ - Updated the System Maintenance Message to use DIVs instead of TABLEs
+
+v0.31.1   2013-04-16   b187cce01e6cf813c7393bda2684c6b41e924fa4
+ - Updated the System Result Message to use DIVs instead of TABLEs
+
+v0.31.0   2013-04-16   3d0afc3f162a4e01ce95fbfac2c1b628e1c91e62
+ - Updated the login page to use a DIV instead of a TABLE
+
+v0.30.2   2013-04-16   4e0870459cb3c4ffc7e9d74c1b5b5b093a15b3be
+ - Added a Default Timezone field to the System Settings
+
+v0.30.1   2013-04-15   7e34b1f05d12545b39d01b2792a6a043fd2e885c
+ - Added a Full URL field to the System Settings
+
+v0.30.0   2013-04-15   ea32f69a5933afc775da7dc81b352e22fcf71ffc
+ - Added an Email Settings section to the Control Panel
+
+v0.29.0   2013-04-15   37314e7cc546113e2e8e014549ea61fe0a1d9eb7
+ - Added a cron job for sending users a daily email about upcoming domain & SSL certificate expirations
+
+v0.28.0   2013-04-15   5bb19db9d18745cf783a92aa03677bcf03f6eeb1
+ - Added a System Info page to the Control Panel
+
+v0.27.3   2013-04-14   2173eec8511c81b948e88459e2bb8301314e229b
+ - Added various form checks to the Segment add & edit pages
+
+v0.27.2   2013-04-14   3953e92cfcc081c271984c82b0f6ff4ef1841da1
+ - Added a check to the add & edit pages to verify the validity of submitted expiry dates
+
+v0.27.1   2013-04-11   74fb58d3b49148b7da64c849b65864c779572adb
+ - Added a check to Bulk Actions to see if the Notes field was submitted blank or not
+
+v0.27.0   2013-04-10   4f49ed572b7958325f98329a1a12c0ff491ac2f2
+ - Added a logo and favicon
+
+v0.26.6   2013-04-10   dc9749128f617db39c86ee9f01860ac79da42115
+ - Updated the Segment system to give the users a lot more control and information (seeing which domains don't match the segment, which ones match but are inactive, etc.)
+
+v0.26.5   2013-04-09   7ebd2877fd801aeb63d2105d6a6598218b84ebd7
+ - Updated the login process to execute the Segment Update script
+
+v0.26.4   2013-04-09   3b148af7c5db30fe28980dc85c5e14af1429b501
+ - Added checks for invalid domains on the Bulk Actions form
+
+v0.26.3   2013-04-08   9a750bb91612bbb0657b6f9e6dd562b6859ca2aa
+ - Renamed Primary Category to Category
+
+v0.26.2   2013-04-08   c5eb1195313225e2a4b56424b6ac91752f684bd8
+ - Added to the functionality of the data submission checks on the Bulk Actions form
+
+v0.26.1   2013-04-08   aeca295828e60c915f04328e00de0dec833486cc
+ - Updated the login process to execute the Fix TLDs script
+
+v0.26.0   2013-04-08   6d285bf0dcd3a28bd0a09294f3c5ec34c3c6be0c
+ - Completely reworked how the Fix Fees scripts work
+
+v0.25.2   2013-04-08   fbc7425350c943049e917cf89babf403fa472e5b
+ - Updated the currency conversion & format process and converted it to an include
+
+v0.25.1   2013-04-08   3d266ceba8854f1acb26f605b1c6f1305d05688e
+ - Added the Fee column to the main Domain & SSL Certificate pages
+
+v0.25.0   2013-04-08   3af73bb7194f68c09798ba1cfc7f163b3c4299ba
+ - Added the ability to export results on the main SSL Certificates page
+
+v0.24.2   2013-04-08   c058365c8eaa5351de3a8e64327b6e62cb510777
+ - Updated the Renewal exports to only include active domains & SSL certificates
+
+v0.24.1   2013-04-07   7be3762a242d2cd962f5ed568d16da433e7d468c
+ - Renamed Domain Expirations & SSL Certificate Expirations to Domain Renewals & SSL Certificate Renewals
+
+v0.24.0   2013-04-07   aa6055fefd6294806294fb991c082fb692ffe933
+ - Added the ability to export results on the main Domains page
+
+v0.23.0   2013-04-07   75b262fcecd2f351b97d7134cbe2a550a530208c
+ - Added support for missing & inactive domains when dealing with Segment filters
+
+v0.22.5   2013-04-07   150ab40bc40d920fbabbeb32c09d5dbc4b5b55aa
+ - Updated the Domain & SSL Certificate deletion process so that fees can be entered with a value of 0 (which used to delete the fee)
+
+v0.22.4   2013-04-07   8e3de2e21bc01d411adf5aa2516b2c22a3719540
+ - Fixed SQL select bug on the SSL Provider edit page
+
+v0.22.3   2013-04-06   b46fe28b6f867e0aa3d4fc3acd9918233e0f274d
+ - Fixed a spelling mistake that was breaking a CSS class
+
+v0.22.2   2013-04-06   ee50fe7ccd57142e3dd6ce1122c923f4d8875a76
+ - Fixed a variable spelling bug on the main SSL Certificates page
+
+v0.22.1   2013-04-06   206bff51b0cd0a9c35e46111bf2974fa8e9b7c0c
+ - Split the domain registrar & SSL provider fees out to separate pages
+
+v0.22.0   2013-04-06   254bf7306a4f3dcbce2f3d4cc6bc9ccf2db3d5c0
+ - Removed the Test Data system
+
+v0.21.8   2013-04-06   7e8fb9078b7c57081911a9adee4d02b6a91a6c4c
+ - Updated various forms to perform additional error checking on dropdown lists
+
+v0.21.7   2013-04-06   5fd870a589ab3ef4edefc2005374ef155bd70cc3
+ - Updated how incomplete data is dealt with on various add & edit pages
+
+v0.21.6   2013-04-05   15507f1ab3a232802c51e19ba630a6220f0889f8
+ - Added Domain Registrars & SSL Providers to the user's display settings (for the Domains page)
+
+v0.21.5   2013-04-05   863a21dca34ec250a3c1190f2b3e622ba8f720dd
+ - Updated user add & edit process to account for the new user-based settings
+
+v0.21.4   2013-04-05   fe60220dff968b2b7eb2581ab0449e7aba920025
+ - Updated the Domains page to only display the data columns chosen by the user
+
+v0.21.3   2013-04-05   625edbc0e0126850bd832b1712ee901ed0c86338
+ - Fixed Owners page bug that was causing SQL statements to cross
+
+v0.21.2   2013-04-04   e6b7457ded821606d4da940052c22f04b404126d
+ - Updated the login process to check for existing domains & SSL certificates
+
+v0.21.1   2013-04-04   d016a1247d2d205062d2b43a7f627f789662a05f
+ - Updated the domain expiration export process to include the domain status information
+
+v0.21.0   2013-04-04   04925bdaf7fc08ef5fb2e7c4eb32b3e93991758a
+ - Added an SSL Certificate breakdown to the Owners page
+
+v0.20.2   2013-04-04   f605a2b17f2b44471e6fc5b216ef435289f0d13a
+ - Fixed a display bug on various add & edit page dropdown menus
+
+v0.20.1   2013-04-03   0fe37df4b4cca438f2710830479389d4651c28ae
+ - Updated the Owners display page to show how many accounts the inactive Owners have
+
+v0.20.0   2013-04-03   3bd0bac56f67acd9ae04091d6fbe5dcf73912d45
+ - Expanded on the ability to select default assets
+
+v0.19.4   2013-04-03   0b9d8f6f7f2da308b41f040c060a755e6bff652d
+ - Renamed SSL Functions to SSL Types
+
+v0.19.3   2013-04-02   1d2edf0cb52bf6bd48f9a30af106c4f2a9689dfd
+ - Added SSL Function display page
+
+v0.19.2   2013-04-02   1df2e9c75a544981d2ea4e290d834c41d9a3d522
+ - Added SSL Functions to submenu
+
+v0.19.1   2013-04-02   953b78cdbb6346de8f03aa5f7e5bfdf8a752eafb
+ - Added SSL Functions to main menu
+
+v0.19.0   2013-04-02   7c7032dc469ead0338903c28da1dafaa87a3ba5f
+ - Completely overhauled the SSL Certificate code to account for the new SSL Function options
+
+v0.18.3   2013-04-02   c655fd081dc04756e7a755ae6f0810af57dbc35f
+ - Fixed database version check variable bug that was causing SQL statements to cross
+
+v0.18.2   2013-04-02   70fc94328f60551e1e729b3f4947397d745ed192
+ - Updated database upgrade check process to display a maintenance notification if a database upgrade is required
+
+v0.18.1   2013-04-02   750e2db9c3c4d92426af885fa2878e71c391245b
+ - Renamed Exchange Rates to Conversion Rates
+
+v0.18.0   2013-04-01   b27fb7924efdddeabb616c4fad309ec67f54d31b
+ - Added the ability for users to update their email address
+
+v0.17.0   2013-04-01   96a4b710e407fac9d5c1fe5ef3cee55730fabeb7
+ - Added the ability to manually edit conversion rates
+
+v0.16.1   2013-04-01   3786de0930cac2047c21ec5cbc3d6946d24835e3
+ - Updated the domain deletion process to display an error if someone tries to delete a domain with active SSL certificates associated with it
+
+v0.16.0   2013-04-01   8d9f0eb57731e193e261e8243bc5bfa87563adb3
+ - Added the ability to delete assets on various asset edit pages
+
+v0.15.2   2013-04-01   0a2a78e17609d6da330ee7765a3e5d0f900647b3
+ - Renamed Category Owner to Category Stakeholder
+
+v0.15.1   2013-04-01   2613e67c5fadaa013920d97891cc8d22488c6b26
+ - Fixed a bug that prevented registrar fees from being deleted
+
+v0.15.0   2013-04-01   1d79640933577fa9ed095b87bdb7d725f4f70eda
+ - Added the ability to assign defaults to DNS Profiles, IP Addresses & Owners
+
+v0.14.1   2013-03-31   593ac93dd48c3c69901a20eb875e46be1190b82c
+ - Fixed whitespace bug on DNS Profile list page that was causing redirects to fail
+
+v0.14.0   2013-03-29   9b1ffc518348b5442c28514314997dd6f69dc3f8
+ - Began adding support for user-defined system settings
+
+v0.13.0   2013-03-28   c173b859ab5ac00c9d08b1ff98c1ebf68865726d
+ - Added rDNS (reverse DNS) to IP Address data
+
+v0.12.0   2013-03-27   c6b1091368cfeb1764b08cc1ec3e863edd6df910
+ - Expanded upon the support for multiple users
+
+v0.11.2   2013-03-26   2da5f988e43d06ab66dc2c3c41688162e3cce1f6
+ - Fixed a bug with the registrar list that made it so only active registrars displayed, and not ones that had only domains marked as pending renewal, pending registration, etc.
+
+v0.11.1   2013-03-26   b437760ff1aaae53559b29d9b5ac4ab94b6297cf
+ - Fixed a bug in the SSL expiration export that was causing the IP Address to not display
+
+v0.11.0   2013-03-26   7a0827cd77b4560225d24cf993cad26d94577168
+ - Added additional assets to support IP Address management
+
+v0.10.0   2013-03-25   1b506932b6fa82ea7e50d90af011cb414e497f4f
+ - Added support for IP Addresses on SSL Certificate add & edit pages
+
+v0.9.0   2013-03-24   552c84350198c76ea645118420cde8c62234a7a4
+ - Added a mechanism to check the current database version during login
+
+v0.8.3   2013-03-23   9ee72cfa68fd006046adf973e50bb13a449ab6b9
+ - Fixed a bug with the add domain page that caused the status to not get added to the database
+
+v0.8.2   2013-03-22   3137f363bb765c45ca88ba7c5d09a70337c99507
+ - Fixed a bug with Bulk Actions that made it so only registrar accounts that already had domains associated with them were displayed
+
+v0.8.1   2013-03-21   f92eb3baf11545875f861b38ad02870152c2ddcb
+ - Fixed a bug that was preventing the submenu from displaying
+
+v0.8.0   2013-03-20   215f2bd1f279ea5bcc1d6d1b9b86c7bf1a99960e
+ - Added support for automated currency conversions
+
+v0.7.0   2013-03-20   aa458942079ae5da3439a0bb74f7a17d0e302a91
+ - Added MySQL escaping to various files to help prevent SQL injections
+
+v0.6.1   2012-03-06   bb81c60e2bcc4c7aaedd4151d2d0cb2c22fcd65a
+ - Updated the domain expiration export to include DNS Profile
+
+v0.6.0   2011-06-20   23528ce16e19a6bc0ee82df74a16a165c642307d
+ - Added 'Sold' as a domain status type
+
+v0.5.2   2010-10-02   7d4fde6200277663c9b6b4c46fd40b7be13c488b
+ - Updated the domain expiration results to exclude expired domains, instead of including active domains. So now the results will include domains that are pending renewal, pending registration, etc.
+
+v0.5.1   2010-09-22   31121f87ce94c37f1c88a722a3fe71b6e2d510b2
+ - Updated the domain expiration export to include Category Owner
+
+v0.5.0   2010-09-22   db4558655c77ce3e3c079f753793efc93c899ec7
+ - Added support for Category Owner
+
+v0.4.1   2010-08-15   f4e173731f9324dc9f43fd176e43abdf2e0fbcea
+ - Fixed $web_root bug that caused some system links to break
+
+v0.4.0   2010-05-11   62944fc5dd11a1fde8d7999f9ef938e7cca6aa6f
+ - Added Function field to SSL certificates
+
+v0.3.1   2010-05-10   ad61e37cded497c8d16c82f85fc614537265d8ed
+ - Switched SSL Type from text field to dropdown list with separate database
+
+v0.3.0   2010-05-09   de417f0c7d408df04d00d7282404763402b7d9e8
+ - Added the ability for users to edit their profile
+
+v0.2.0   2010-05-09   4e4d0a820d0d8e6366ca4836ced9e80aa2084dfa
+ - Began adding support for creating new users
+
+v0.1.0   2010-05-09   aedaede37b97303950689e815b80895ce9dc903e
+ - Initial Release

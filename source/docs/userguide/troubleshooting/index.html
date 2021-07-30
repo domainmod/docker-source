@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Greg Chetcuti">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Troubleshooting - DomainMOD User Guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Troubleshooting";
+    var mkdocs_page_input_path = "troubleshooting.md";
+    var mkdocs_page_url = "/docs/userguide/troubleshooting/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <!--<a href=".." class="icon icon-home"> DomainMOD User Guide</a>-->
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search the User Guide" title="Search the User Guide" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../getting-started/">Getting Started</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../first-run/">First Run</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../upgrading/">Upgrading</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../migrating/">Migrating</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../creating-assets/">Creating Assets</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../adding-domains/">Adding Domains</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../domain-queue/">Domain Queue</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../bulk-updater/">Bulk Updater</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../administration/">Administration</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../backup-restore/">Backup & Restore</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../data-warehouse/">Data Warehouse</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../faq/">Frequently Asked Questions</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../conduct/">Code of Conduct</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../contributing/">Contributing</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Troubleshooting</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#installation">Installation</a></li>
+    
+
+    <li class="toctree-l2"><a href="#upgrading">Upgrading</a></li>
+    
+
+    <li class="toctree-l2"><a href="#usage">Usage</a></li>
+    
+
+    <li class="toctree-l2"><a href="#debugging">Debugging</a></li>
+    
+
+    <li class="toctree-l2"><a href="#helper-programs">Helper Programs</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../support/">Support</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <!--<a href="..">DomainMOD User Guide</a>-->
+        <a href="">User Guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+
+        <span class="domainmod-logo">
+          <a href="https://domainmod.org"><img width="264" height="40" src="../img/logo.png"></a>
+        </span>
+
+        <div class="rst-content" style="padding-top: 23px;">
+
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">User Guide</a> &raquo;&nbsp;</li>
+    
+      
+    
+    <li>Troubleshooting</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/domainmod/userguide/edit/master/docs/troubleshooting.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+                
+                
+                <h1>Troubleshooting</h1>
+                
+
+                
+                <h2 id="installation">Installation</h2>
+<p><a name="strictmode"></a><h4>
+The database tables are being created but some of the data isn't getting inserted
+I get a blank page and can't go any further<br />
+I get an "Error 500" message<br />
+</h4></p>
+<p>MySQL strict mode may be enabled on your server. In order for DomainMOD to install and run, strict mode must to be disabled.</p>
+<p>To disable strict mode you need to edit your MySQL configuration file. In it there will be a line that looks like:</p>
+<pre><code>sql-mode="STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
+</code></pre>
+<p>To disable strict mode you need to remove STRICT_TRANS_TABLES from this line (including the comma after it, if there is one), which in this example would leave you with:</p>
+<pre><code>sql-mode="NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
+</code></pre>
+<p>Once disabled you will need to restart MySQL, and then DomainMOD should install properly.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As of v4.11, DomainMOD will try to disable strict mode automatically during the database connection, but if you're still experiencing issues you should follow the steps above.</p>
+</div>
+<p><a name="webroot"></a><h4>
+I'm receiving an error that there are too many redirects<br />
+The images and CSS are broken<br />
+</h4></p>
+<p>This is generally caused by an invalid web root in your config.inc.php file. Please double check your config.inc.php file and confirm that the $web_root variable reflects the directory where you installed DomainMOD.</p>
+<p>For example, if you access DomainMOD via the URL http://example.com/domains/ the $web_root variable should be:</p>
+<pre><code>$web_root = "/domains"; (don't include a trailing slash!)
+</code></pre>
+<p>And if you've installed DomainMOD in the root folder of a domain or subdomain, the $web_root variable in your config.inc.php file should be blank, like so:</p>
+<pre><code>$web_root = "";
+</code></pre>
+<h2 id="upgrading"><BR>Upgrading</h2>
+<p><a name="upgrading"></a><h4>
+There was an issue while upgrading and now I can't access DomainMOD
+</h4></p>
+<p>Although we personally haven't see this happen yet, it's definitely possible. This is why we recommend you backup your DomainMOD installation directory and database before upgrading (you did make that backup, right?).</p>
+<p>Follow these steps to restore your copy of DomainMOD:</p>
+<ol>
+<li>
+<p>Restore your DomainMOD database backup to the same location as your previous DomainMOD database.</p>
+</li>
+<li>
+<p>Instead of logging into DomainMOD to upgrade your database, run the below script from the command line.</p>
+<p>[FULL SERVER PATH TO DOMAINMOD]/update.php</p>
+<p>The full command will look something like this, depending on the location of PHP and DomainMOD on your server:</p>
+<p>/usr/bin/php -f /home/user/www/domainmod/update.php</p>
+</li>
+<li>
+<p>If you receive a notice that your upgrade was <strong>successful</strong>, switch back to your web browser and try to login to DomainMOD. If you're able to login successfully you can ignore the rest of these steps.</p>
+</li>
+<li>
+<p>If you receive a notice that your upgrade was <strong>unsuccessful</strong>, keep a record of any error messages that are displayed and proceed to the next step.</p>
+</li>
+<li>
+<p>Restore your DomainMOD database backup again, then <a href="https://github.com/domainmod/domainmod/releases">download the previous version that you were using</a> and go through the standard installation steps, pointing it at your newly-restored database in the config.inc.php file. This should get you back to where you were before you tried upgrading.</p>
+</li>
+<li>
+<p>Contact us with any error messages that were displayed and we'll try to help figure out what went wrong with your upgrade.</p>
+</li>
+</ol>
+<h2 id="usage"><BR>Usage</h2>
+<p><a name="errorlevel"></a><h4>
+The software seems to be working properly, but some messages are being displayed, such as "<em>undefined index</em>" and "<em>undefined variable</em>"
+</h4></p>
+<p>This is related to the error reporting level that you have turned on in PHP. Although these are only warnings and won't actually be breaking anything, you can get rid of them by editing your php.ini file and changing the error_reporting line.</p>
+<p>Right now you probably have something that looks like this:</p>
+<pre><code>error_reporting = E_ALL
+</code></pre>
+<p>But you should have something that looks like this:</p>
+<pre><code>error_reporting = E_ALL &amp; ~E_NOTICE &amp; ~E_STRICT &amp; ~E_DEPRECATED
+</code></pre>
+<p>Commented out in your php.ini file, above the error_reporting directive, there may be a suggested error reporting line for a "Production" environment. Try using that line instead of what you're using now, restart Apache/PHP, and that should get rid of the errors.</p>
+<p><a name="pending"></a><h4>
+I'm trying to connect DomainMOD to my domain registrar account using the API so that I can import my domains, but everything in the Domain Queue just says "Pending"
+</h4> </p>
+<p>In order to import your domains using the domain registrar's API you must setup the <a href="../getting-started/#cron-job">cron job</a> that comes with DomainMOD. In addition to having the cron job running, you must also have your API credential saved along with your registrar account Asset.</p>
+<p><a name="processing"></a><h4>
+I'm trying to import data using the Domain Queue, but everything is stuck on "Processing"
+</h4></p>
+<p>In case there's an issue with the cron job you can also try triggering the queue manually. Go to <em>Administration -&gt; Task Scheduler</em>, and then beside "Domain Queue Processing" click the "run now" link (this may take a bit of time to run). Then go back to the queue and see if anything has changed.</p>
+<p>If that doesn't work you can try clearing the queue items that are currently processing by going to <em>Administration -&gt; Maintenance</em>, and then clicking on "Clear Queue Processing". Now try the last suggestion again to see if running the queue manually through the Task Scheduler helps.</p>
+<p>If that still doesn't do it go to <em>Administration -&gt; Maintenance</em>, and then click on "Clear Queues". This will completely clear out the queue. Now try retrieving your data again using the Domain Queue.</p>
+<p><a name="dwprop"></a><h4>
+I've setup the Data Warehouse within DomainMOD, but none of my changes propagate to my web server
+</h4></p>
+<p>The Data Warehouse is read-only. You can import data from your web server into your Data Warehouse, but this data is for informational purposes only, and you can't edit your server data within DomainMOD and have it update your web server. This is something that will be worked on in the future, but is currently not possible.</p>
+<p><a name="dberr1045"></a><h4>
+I'm getting the error, "Database Connection Error: 1045"
+</h4></p>
+<p>Error 1045 is an access denied error, which seems to be caused when the user doesn't have appropriate permissions on the database, or there's another privilege issue with the database. Unfortunately this is pretty difficult to troubleshoot on our end, as there are many things that can cause this.</p>
+<p>We would recommend trying some of the suggestions for this error in Google and see if any of them help: <a href="https://www.google.com/search?q=Database+Connection+Error%3A+1045">https://www.google.com/search?q=Database+Connection+Error%3A+1045</a>.</p>
+<p><a name="javascript"></a><h4>
+Form fields aren't displaying properly, such as checkboxes and text fields showing as empty boxes
+</h4></p>
+<p>This is usually caused by JavaScript being disabled in your web browser. If enabling JavaScript doesn't fix the issue try disabling any ad blockers or other content blockers you may have installed.</p>
+<p><a name="currency"></a><h4>
+The currency conversions aren't working properly<br />
+My fees are all showing up as zero
+</h4></p>
+<p>This is usually caused by a currency converter that's experiencing downtime. You can fix this by changing the currency conversion source.</p>
+<ol>
+<li>
+<p>Click <strong>Administration</strong> on the main menu, then click <strong>System Settings</strong>.</p>
+</li>
+<li>
+<p>Click on the <strong>Currency Converter</strong> dropdown menu and choose a new source.</p>
+</li>
+<li>
+<p>Click the <strong>Update System Settings</strong> button. </p>
+</li>
+</ol>
+<p>After the Currency Converter source has been changed you can force a currency conversion update by going to <em>Maintenance -&gt; Update Conversion Rates</em>.</p>
+<h2 id="debugging"><BR>Debugging</h2>
+<p>If you're still having issues you can enable Debugging Mode, which will make DomainMOD start logging your actions and errors, which can help us troubleshoot your issue.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>No sensitive information gets stored in the debugging log. Passwords, API keys, and other sensitive information is replaced with asterisks, so we will never be able to view your private data.</p>
+</div>
+<p>To enable Debugging Mode:</p>
+<ol>
+<li>
+<p>Click <strong>Administration</strong> on the main menu, then click <strong>System Settings</strong>.</p>
+</li>
+<li>
+<p>Change the <strong>Debugging Mode</strong> option to <strong>Enabled</strong>.</p>
+</li>
+<li>
+<p>Click the <strong>Update System Settings</strong> button.</p>
+</li>
+</ol>
+<p>Once debugging is enabled use DomainMOD as you normally would, repeating the steps you took when you first encountered the issue. Once you've done this continue with the below steps.</p>
+<ol>
+<li>
+<p>If you haven't already, visit the DomainMOD <a href="https://domainmod.org/forum/">support forum</a> or <a href="https://domainmod.org/issues/">issue tracker</a> and post about your issue.</p>
+</li>
+<li>
+<p>In DomainMOD, click on <strong>Administration</strong> and then <strong>Debug Log</strong>.</p>
+</li>
+<li>
+<p>Click the <strong>Export</strong> button to export the debugging log.</p>
+</li>
+</ol>
+<p>In addition to the debugging log you should also retrieve your PHP error log, which will give us additional information about your issue.</p>
+<p>To find the location of your PHP error log:</p>
+<ol>
+<li>
+<p>In DomainMOD, click on <strong>Administration</strong> and then <strong>System Information</strong>.</p>
+</li>
+<li>
+<p>Look for the heading named <strong>PHP Error Log Location</strong>. This will show you the location of the PHP error log on your web server.</p>
+</li>
+</ol>
+<p>Once you have both your debugging log and PHP error log send an email to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#100;&#101;&#98;&#117;&#103;&#103;&#105;&#110;&#103;&#64;&#100;&#111;&#109;&#97;&#105;&#110;&#109;&#111;&#100;&#46;&#111;&#114;&#103;">&#100;&#101;&#98;&#117;&#103;&#103;&#105;&#110;&#103;&#64;&#100;&#111;&#109;&#97;&#105;&#110;&#109;&#111;&#100;&#46;&#111;&#114;&#103;</a> and attach the log files. Please also include the URL to your support forum post or issue tracker ticket so that we can determine the issue you're contacting us about.</p>
+<p>We will review your logs and get back to you as soon as we can!</p>
+<p>Also, if you haven't already, make sure you disable Debugging Mode.</p>
+<h2 id="helper-programs"><BR>Helper Programs</h2>
+<p>If all else fails, DomainMOD has some "helper" programs that support can supply you with in order to help investigate or fix your issue. Helper programs are nothing more than simple scripts that can perform actions on your DomainMOD installation, whether it's performing an update on your database or setting a temporary variable.</p>
+<p>Although helpers are generally custom and specific to the user's issue, we wanted to include a generic helper publicly so that users could get a feel for what helpers are and what they do.</p>
+<p>In DomainMOD v4.18, we implemented strict <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">Content Security Policy</a> headers in order to help secure the application and reduce the risk of certain web-based attacks. We also enabled forced HTTPS, which ensures that your DomainMOD installation will <strong>only</strong> work if you've secured your web hosting with an SSL certificate.</p>
+<p>Although we highly recommend keeping the CSP headers enabled, as well as using an SSL certificate to secure your DomainMOD installation, we realize that some users may not always be able to have these features enabled. If you're one of those users, and you need to disable CSP and HTTPS, you could use the below helper to do so.</p>
+<p>You would simply create the file <em>/helpers/top.php</em> and paste the below contents into it. That's all there is to it! The next time your visit your DomainMOD installation CSP and HTTPS will both be disabled.</p>
+<div class="admonition danger">
+<p class="admonition-title">Warning</p>
+<p>If you're using a helper to investigate or fix something, and the helper is only intended to be used temporarily, don't forget to delete the helper file as soon as you're done using it!     </p>
+</div>
+<pre><code>&lt;?php
+// Contents of: /helpers/top.php
+$disable_csp = 1;
+$force_https = 0;
+</code></pre>
+                
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../support/" class="btn btn-neutral float-right" title="Support">Next&nbsp;&nbsp;<span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../contributing/" class="btn btn-neutral" title="Contributing"><span class="icon icon-circle-arrow-left"></span>&nbsp;&nbsp;Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  <span style="font-family: 'Verdana', sans-serif; font-size: 12px; font-style: italic;"><a href="https://domainmod.org">DomainMOD</a> is open source software released under the <a href="http://www.gnu.org/licenses/">GNU/GPL License</a>.<BR>
+  Copyright (c) 2010-2021 <a href="http://chetcuti.com">Greg Chetcuti</a>. All rights reserved.</span>
+
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/domainmod/userguide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../contributing/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../support/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
