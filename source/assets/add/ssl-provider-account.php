@@ -3,7 +3,7 @@
  * /assets/add/ssl-provider-account.php
  *
  * This file is part of DomainMOD, an open source domain and internet asset manager.
- * Copyright (c) 2010-2021 Greg Chetcuti <greg@chetcuti.com>
+ * Copyright (c) 2010-2022 Greg Chetcuti <greg@chetcuti.com>
  *
  * Project: http://domainmod.org   Author: http://chetcuti.com
  *
@@ -171,10 +171,7 @@ echo $form->showDropdownBottom('');
 echo $form->showInputText('new_email_address', _('Email Address') . ' (100)', '', $unsanitize->text($new_email_address), '100', '', '', '', '');
 echo $form->showInputText('new_username', _('Username') . ' (100)', '', $unsanitize->text($new_username), '100', '', '1', '', '');
 echo $form->showInputText('new_password', _('Password') . ' (255)', '', $unsanitize->text($new_password), '255', '', '', '', '');
-echo $form->showRadioTop(_('Reseller Account') .  '?', '', '');
-echo $form->showRadioOption('new_reseller', '1', _('Yes'), $new_reseller, '<BR>', '&nbsp;&nbsp;&nbsp;&nbsp;');
-echo $form->showRadioOption('new_reseller', '0', _('No'), $new_reseller, '', '');
-echo $form->showRadioBottom('');
+echo $form->showSwitch(_('Reseller Account') . '?', '', 'new_reseller', $new_reseller, '', '<BR><BR>');
 echo $form->showInputText('new_reseller_id', _('Reseller ID') . ' (100)', '', $unsanitize->text($new_reseller_id), '100', '', '', '', '');
 echo $form->showInputTextarea('new_notes', _('Notes'), '', $unsanitize->text($new_notes), '', '', '');
 echo $form->showSubmitButton(_('Add SSL Provider Account'), '', '');

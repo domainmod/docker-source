@@ -80,6 +80,9 @@
     <a class="current" href="./">Adding Domains</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#csv-importer">CSV Importer</a></li>
+    
+
     <li class="toctree-l2"><a href="#domain-queue">Domain Queue</a></li>
     
 
@@ -90,6 +93,11 @@
     
 
     </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../csv-importer/">CSV Importer</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -193,10 +201,13 @@
                 <p>DomainMOD gives you a few options for adding your domains, so you should read through the below sections to determine which will work best for you.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Before adding your domains to DomainMOD you must first create some Assets. If you've just finished installing you should visit the <a href="../first-run/">First Run</a> section, which will walk you through creating the assets that are required to start using DomainMOD.</p>
+<p>Before adding your domains to DomainMOD you must first create some Assets. If you've just finished installing you should visit the <a href="../first-run/">First Run</a> section, which will walk you through creating the Assets that are required to start using DomainMOD. Alternatively, you can use the <a href="../csv-importer/">CSV Importer</a> to import all of your domain data without having to create any Assets first.</p>
 </div>
+<h2 id="csv-importer">CSV Importer</h2>
+<p>The CSV Importer allows you to import all of your domain data into DomainMOD using a CSV template. This is a brand new feature as of DomainMOD v4.19, but all testing has gone very well, and I've personally imported quite a few test CSV files with 100% accuracy. Keep in mind that the CSV Importer only imports <strong>new</strong> domains, it does not update domains that are already in your DomainMOD database.</p>
+<p><a href="../csv-importer/">Add domains using the CSV Importer &raquo;</a></p>
 <h2 id="domain-queue">Domain Queue</h2>
-<p>The easiest option for adding domains is to use the Domain Queue, which allows you to supply a list of domains and let DomainMOD take care of the rest (and in some cases you don't even need to supply the list of domains, it will be automatically retrieved from your registrar account).</p>
+<p>One of the easiest options for adding domains is to use the Domain Queue, which allows you to supply a list of domains and let DomainMOD take care of the rest (and in some cases you don't even need to supply the list of domains, it will be automatically retrieved from your registrar account).</p>
 <p>This option uses your domain registrar's API to retrieve information required to add domains, so unfortunately it only works if your registrar has an API and support for it has been built into DomainMOD. Before using this option make sure your API credentials have been saved with your registrar account.</p>
 <p><a href="../domain-queue/">Add domains using the Domain Queue &raquo;</a></p>
 <h2 id="bulk-updater">Bulk Updater</h2>
@@ -234,7 +245,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../domain-queue/" class="btn btn-neutral float-right" title="Domain Queue">Next&nbsp;&nbsp;<span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../csv-importer/" class="btn btn-neutral float-right" title="CSV Importer">Next&nbsp;&nbsp;<span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../creating-assets/" class="btn btn-neutral" title="Creating Assets"><span class="icon icon-circle-arrow-left"></span>&nbsp;&nbsp;Previous</a>
@@ -250,7 +261,7 @@
   </div>
 
   <span style="font-family: 'Verdana', sans-serif; font-size: 12px; font-style: italic;"><a href="https://domainmod.org">DomainMOD</a> is open source software released under the <a href="http://www.gnu.org/licenses/">GNU/GPL License</a>.<BR>
-  Copyright (c) 2010-2021 <a href="http://chetcuti.com">Greg Chetcuti</a>. All rights reserved.</span>
+  Copyright (c) 2010-2022 <a href="http://chetcuti.com">Greg Chetcuti</a>. All rights reserved.</span>
 
 </footer>
       
@@ -270,7 +281,7 @@
         <span><a href="../creating-assets/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../domain-queue/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../csv-importer/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

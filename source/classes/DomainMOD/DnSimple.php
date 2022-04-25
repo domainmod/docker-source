@@ -3,7 +3,7 @@
  * /classes/DomainMOD/DnSimple.php
  *
  * This file is part of DomainMOD, an open source domain and internet asset manager.
- * Copyright (c) 2010-2021 Greg Chetcuti <greg@chetcuti.com>
+ * Copyright (c) 2010-2022 Greg Chetcuti <greg@chetcuti.com>
  *
  * Project: http://domainmod.org   Author: http://chetcuti.com
  *
@@ -60,15 +60,6 @@ class DnSimple
         $result = curl_exec($handle);
         curl_close($handle);
         return $result;
-    }
-
-    public function getAccountId($api_key)
-    {
-        $api_url = $this->getApiUrl('', 'accountid', '');
-        $api_results = $this->apiCall($api_key, $api_url);
-        $array_results = $this->convertToArray($api_results);
-
-        return $array_results['data']['account']['id'];
     }
 
     public function getDomainList($api_key, $account_id)

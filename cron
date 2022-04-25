@@ -1,1 +1,1 @@
-*/10 * * * * www-data /usr/local/bin/php -q /var/www/html/cron.php > /dev/null
+*/10 * * * * domainmod /usr/local/bin/php -q /var/www/html/cron.php > /dev/null

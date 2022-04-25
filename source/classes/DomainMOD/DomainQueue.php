@@ -3,7 +3,7 @@
  * /classes/DomainMOD/DomainQueue.php
  *
  * This file is part of DomainMOD, an open source domain and internet asset manager.
- * Copyright (c) 2010-2021 Greg Chetcuti <greg@chetcuti.com>
+ * Copyright (c) 2010-2022 Greg Chetcuti <greg@chetcuti.com>
  *
  * Project: http://domainmod.org   Author: http://chetcuti.com
  *
@@ -69,11 +69,19 @@ class DomainQueue
                     $api_key = $this->api->getKey($row->account_id);
                     list($domain_count, $domain_list) = $registrar->getDomainList($api_key, $row->account_id);
 
+                } elseif ($row->api_registrar_name == 'Cloudflare') {
+
+                    $registrar = new Cloudflare();
+                    $api_key = $this->api->getKey($row->account_id);
+                    $account_id = $this->api->getAccountId($row->account_id);
+                    list($account_username, $account_password) = $this->api->getUserPass($row->account_id);
+                    list($domain_count, $domain_list) = $registrar->getDomainList($account_username, $account_id, $api_key);
+
                 } elseif ($row->api_registrar_name == 'DNSimple') {
 
                     $registrar = new DnSimple();
                     $api_key = $this->api->getKey($row->account_id);
-                    $account_id = $registrar->getAccountId($api_key);
+                    $account_id = $this->api->getAccountId($row->account_id);
                     list($domain_count, $domain_list) = $registrar->getDomainList($api_key, $account_id);
 
                 } elseif ($row->api_registrar_name == 'DreamHost') {
@@ -216,11 +224,19 @@ class DomainQueue
                     $registrar = new AboveCom();
                     list($expiration_date, $dns_servers, $privacy_status, $autorenew_status) = $registrar->getFullInfo($row->account_id, $row->domain);
 
+                } elseif ($row->api_registrar_name == 'Cloudflare') {
+
+                    $registrar = new Cloudflare();
+                    $api_key = $this->api->getKey($row->account_id);
+                    $account_id = $this->api->getAccountId($row->account_id);
+                    list($account_username, $account_password) = $this->api->getUserPass($row->account_id);
+                    list($expiration_date, $dns_servers, $privacy_status, $autorenew_status) = $registrar->getFullInfo($account_username, $account_id, $api_key, $row->domain);
+
                 } elseif ($row->api_registrar_name == 'DNSimple') {
 
                     $registrar = new DnSimple();
                     $api_key = $this->api->getKey($row->account_id);
-                    $account_id = $registrar->getAccountId($api_key);
+                    $account_id = $this->api->getAccountId($row->account_id);
                     list($expiration_date, $dns_servers, $privacy_status, $autorenew_status) = $registrar->getFullInfo($api_key, $account_id, $row->domain);
 
                 } elseif ($row->api_registrar_name == 'DreamHost') {
@@ -303,7 +319,7 @@ class DomainQueue
                 } elseif ($row->api_registrar_name == 'ResellerClub') {
 
                     $registrar = new ResellerClub();
-                    list($reseller_id, $api_key) = $this->api->getReselleridKey($row->account_id);
+                    list($reseller_id, $api_key) = $this->api->getResellerIdKey($row->account_id);
                     list($expiration_date, $dns_servers, $privacy_status, $autorenew_status) = $registrar->getFullInfo($reseller_id, $api_key, $row->domain);
 
                 } else {

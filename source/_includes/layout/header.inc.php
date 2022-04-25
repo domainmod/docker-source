@@ -3,7 +3,7 @@
  * /_includes/layout/header.inc.php
  *
  * This file is part of DomainMOD, an open source domain and internet asset manager.
- * Copyright (c) 2010-2021 Greg Chetcuti <greg@chetcuti.com>
+ * Copyright (c) 2010-2022 Greg Chetcuti <greg@chetcuti.com>
  *
  * Project: http://domainmod.org   Author: http://chetcuti.com
  *
@@ -191,11 +191,13 @@
         </div>
         <!-- /.sidebar -->
 
+<?php /* ?>
         <div class="sidebar-custom">
             <a href="#" class="btn btn-link"><i class="fas fa-cogs"></i></a>
             <a href="#" class="btn btn-secondary hide-on-collapse pos-right">Help</a>
         </div>
         <!-- /.sidebar-custom -->
+<?php */ ?>
     </aside>
 
     <!-- Content Wrapper. Contains page content -->

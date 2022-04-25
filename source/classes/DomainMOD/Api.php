@@ -3,7 +3,7 @@
  * /classes/DomainMOD/Api.php
  *
  * This file is part of DomainMOD, an open source domain and internet asset manager.
- * Copyright (c) 2010-2021 Greg Chetcuti <greg@chetcuti.com>
+ * Copyright (c) 2010-2022 Greg Chetcuti <greg@chetcuti.com>
  *
  * Project: http://domainmod.org   Author: http://chetcuti.com
  *
@@ -175,7 +175,7 @@ class Api
         }
     }
 
-    public function getReselleridKey($account_id)
+    public function getResellerIdKey($account_id)
     {
         $pdo = $this->deeb->cnxx;
 
@@ -199,6 +199,34 @@ class Api
         } else {
 
             return array($result->reseller_id, $result->api_key);
+
+        }
+    }
+
+    public function getAccountId($account_id)
+    {
+        $pdo = $this->deeb->cnxx;
+
+        $stmt = $pdo->prepare("
+            SELECT account_id
+            FROM registrar_accounts
+            WHERE id = :account_id");
+        $stmt->bindValue('account_id', $account_id, \PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        $stmt->closeCursor();
+
+        if (!$result) {
+
+            $log_message = 'Unable to retrieve Registrar Account ID';
+            $log_extra = array('Account ID' => $account_id, 'Registrar' => $this->assets->getRegistrarByAcc($account_id),
+                'Account Username' => $this->assets->getUsername($account_id));
+            $this->log->critical($log_message, $log_extra);
+            return array($log_message, $log_message);
+
+        } else {
+
+            return $result->account_id;
 
         }
     }

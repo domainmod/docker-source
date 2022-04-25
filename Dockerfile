@@ -34,8 +34,7 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf \
        simplexml \
     && apt-get clean -y \
     && rm -Rf /var/lib/apt/lists/*
-RUN sed -i 's/^exec /service cron start\n\nexec /' /usr/local/bin/apache2-foreground \
-    && sed -i -e "s/# $LOCALE1/$LOCALE1/" /etc/locale.gen \
+RUN sed -i -e "s/# $LOCALE1/$LOCALE1/" /etc/locale.gen \
     && sed -i -e "s/# $LOCALE2/$LOCALE2/" /etc/locale.gen \
     && sed -i -e "s/# $LOCALE3/$LOCALE3/" /etc/locale.gen \
     && sed -i -e "s/# $LOCALE4/$LOCALE4/" /etc/locale.gen \

@@ -3,7 +3,7 @@
  * /classes/DomainMOD/Conversion.php
  *
  * This file is part of DomainMOD, an open source domain and internet asset manager.
- * Copyright (c) 2010-2021 Greg Chetcuti <greg@chetcuti.com>
+ * Copyright (c) 2010-2022 Greg Chetcuti <greg@chetcuti.com>
  *
  * Project: http://domainmod.org   Author: http://chetcuti.com
  *
@@ -23,12 +23,14 @@ namespace DomainMOD;
 
 class Conversion
 {
+    public $currency;
     public $deeb;
     public $log;
     public $time;
 
     public function __construct()
     {
+        $this->currency = new Currency();
         $this->deeb = Database::getInstance();
         $this->log = new Log('class.conversion');
         $this->time = new Time();
@@ -177,6 +179,31 @@ class Conversion
         $api_key = '';
         $currency = new \GJClasses\Currency($converter_source, $api_key);
         return $currency->getConvRate($from_currency, $to_currency);
+    }
+
+    public function checkForConvRate($user_id, $currency)
+    {
+        $pdo = $this->deeb->cnxx;
+        $currency_id = $this->currency->getCurrencyId($currency);
+
+        $stmt = $pdo->prepare("
+            SELECT `id`
+            FROM currency_conversions
+            WHERE user_id = :user_id
+              AND currency_id = :currency_id");
+        $stmt->bindValue('user_id', $user_id, \PDO::PARAM_INT);
+        $stmt->bindValue('currency_id', $currency_id, \PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetchColumn();
+
+        if (!$result) {
+
+            return false;
+
+        }
+
+        return true;
+
     }
 
 } //@formatter:on

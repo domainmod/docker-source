@@ -1,4 +1,6 @@
 #!/bin/bash
+printenv | grep -v "no_proxy" >> /etc/environment
+
 usermod -u ${PUID} domainmod
 groupmod -g ${PGID} domainmod
 su -s /bin/bash -c 'id' domainmod
@@ -13,6 +15,8 @@ fi
 chown -R domainmod:domainmod /var/www/html
 
 chmod 777 /var/www/html/temp
+
+service cron start
 
 exec "$@"
 

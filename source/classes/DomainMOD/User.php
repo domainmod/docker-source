@@ -3,7 +3,7 @@
  * /classes/DomainMOD/User.php
  *
  * This file is part of DomainMOD, an open source domain and internet asset manager.
- * Copyright (c) 2010-2021 Greg Chetcuti <greg@chetcuti.com>
+ * Copyright (c) 2010-2022 Greg Chetcuti <greg@chetcuti.com>
  *
  * Project: http://domainmod.org   Author: http://chetcuti.com
  *
@@ -49,6 +49,19 @@ class User
         $stmt->bindValue('username', $username, \PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchColumn();
+    }
+
+    public function getDefaultCurrency($user_id)
+    {
+        $stmt = $this->deeb->cnxx->prepare("
+            SELECT default_currency
+            FROM user_settings
+            WHERE user_id = :user_id");
+        $stmt->bindValue('user_id', $user_id, \PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        $stmt->closeCursor();
+        return $result->default_currency;
     }
 
     public function getFullName($user_id)

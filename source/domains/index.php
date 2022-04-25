@@ -3,7 +3,7 @@
  * /domains/index.php
  *
  * This file is part of DomainMOD, an open source domain and internet asset manager.
- * Copyright (c) 2010-2021 Greg Chetcuti <greg@chetcuti.com>
+ * Copyright (c) 2010-2022 Greg Chetcuti <greg@chetcuti.com>
  *
  * Project: http://domainmod.org   Author: http://chetcuti.com
  *
@@ -937,6 +937,9 @@ if ($_SESSION['s_has_registrar'] != '1') {
     echo $subtext1 . '<BR><BR>';
     echo $subtext2 . '<BR><BR>';
     echo "<a href=\"../assets/add/registrar.php\">" . _('Click here to add a Domain Registrar') . " &raquo;</a><BR>";
+    echo "or";
+    echo "<BR>";
+    echo "<a href=\"../domains/csv-importer/\">" . _('You can also import your domain data using our CSV Importer') . " &raquo;</a><BR>";
 }
 
 if ($_SESSION['s_has_registrar_account'] != '1' && $_SESSION['s_has_registrar'] == '1') {
@@ -2111,6 +2114,7 @@ if ($segid !== 0) {
 if ($result) { ?>
 
     <a href="add.php"><?php echo $layout->showButton('button', _('Add Domain')); ?></a>
+    <a href="<?php echo $web_root; ?>/domains/csv-importer/"><?php echo $layout->showButton('button', _('CSV Importer')); ?></a>
     <a href="<?php echo $web_root; ?>/queue/intro.php"><?php echo $layout->showButton('button', _('Add Domains To Queue')); ?></a>
     <a target="_blank" href="<?php echo $web_root; ?>/raw.php"><?php echo $layout->showButton('button', _('Raw List')); ?></a>
     <a href="index.php?<?php echo htmlentities($_SERVER['QUERY_STRING']); ?>&export_data=1"><?php echo $layout->showButton('button', _('Export')); ?></a>

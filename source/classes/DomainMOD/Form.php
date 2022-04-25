@@ -3,7 +3,7 @@
  * /classes/DomainMOD/Form.php
  *
  * This file is part of DomainMOD, an open source domain and internet asset manager.
- * Copyright (c) 2010-2021 Greg Chetcuti <greg@chetcuti.com>
+ * Copyright (c) 2010-2022 Greg Chetcuti <greg@chetcuti.com>
  *
  * Project: http://domainmod.org   Author: http://chetcuti.com
  *
@@ -183,6 +183,17 @@ class Form
             $layout = new Layout();
             echo $before;
             echo $layout->showButton('submit', $button_text);
+            echo $after;
+        return ob_get_clean();
+    }
+
+    public function showSwitch($text_to_display, $subtext, $name, $value, $before, $after)
+    {
+        ob_start();
+            echo $before; ?>
+            <strong><?php echo $text_to_display; ?></strong><BR>
+            <?php if ($subtext != '') echo $subtext . '<BR>'; ?>
+            <input type="checkbox" name="<?php echo $name; ?>"<?php if ($value == '1') { echo " checked "; } else { echo " unchecked "; } ?>data-bootstrap-switch data-on-color="danger" value="1"><?php
             echo $after;
         return ob_get_clean();
     }

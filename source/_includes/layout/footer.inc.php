@@ -4,7 +4,7 @@
  * /_includes/layout/footer.inc.php
  *
  * This file is part of DomainMOD, an open source domain and internet asset manager.
- * Copyright (c) 2010-2021 Greg Chetcuti <greg@chetcuti.com>
+ * Copyright (c) 2010-2022 Greg Chetcuti <greg@chetcuti.com>
  *
  * Project: http://domainmod.org   Author: http://chetcuti.com
  *
@@ -53,6 +53,8 @@ if (file_exists($full_filename)) {
 <script src="<?php echo $web_root . '/' . WEBROOT_THEME; ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Select2 -->
 <script src="<?php echo $web_root . '/' . WEBROOT_THEME; ?>/plugins/select2/js/select2.full.min.js"></script>
+<!-- Bootstrap Switch -->
+<script src="<?php echo $web_root . '/' . WEBROOT_THEME; ?>/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 <!-- DataTables  & Plugins -->
 <script src="<?php echo $web_root . '/' . WEBROOT_THEME; ?>/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?php echo $web_root . '/' . WEBROOT_THEME; ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -75,6 +77,10 @@ if (file_exists($full_filename)) {
         $('.select2').select2()
 
         <?php echo $datatable_options; ?>
+
+        $("input[data-bootstrap-switch]").each(function(){
+            $(this).bootstrapSwitch('state', $(this).prop('checked'));
+        })
 
     });
 </script>
