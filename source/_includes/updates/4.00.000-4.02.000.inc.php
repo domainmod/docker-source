@@ -22,7 +22,7 @@
 <?php //@formatter:off
 
 // upgrade database from 4.00.000 to 4.00.001
-if ($current_db_version === '4.00.000') {
+if (isset($current_db_version) && $current_db_version === '4.00.000') {
 
     $pdo->query("
         ALTER TABLE `settings`
@@ -373,7 +373,7 @@ if ($current_db_version === '4.00.002') {
          VALUES
         ('Domain Queue Processing', 'Retrieves information for domains in the queue and adds them to DomainMOD.', 'Every 5 Minutes', '*/5 * * * * *', 'domain-queue', '10', '0', '1', '" . $timestamp . "')");
 
-    $cron = \Cron\CronExpression::factory('*/5 * * * * *');
+    $cron = new Cron\CronExpression('*/5 * * * *');
     $next_run = $cron->getNextRunDate()->format('Y-m-d H:i:s');
 
     $pdo->query("
