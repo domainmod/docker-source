@@ -78,8 +78,8 @@ RUN sed -i -e "s/# $LOCALE1/$LOCALE1/" /etc/locale.gen \
     && sed -i -e "s/# $LOCALE26/$LOCALE26/" /etc/locale.gen \ 
     && locale-gen \
     && echo "LANG=$LOCALE1" > /etc/default/locale
-ENV LANG $LOCALE1
-ENV LC_ALL $LOCALE1
+ENV LANG=$LOCALE1
+ENV LC_ALL=$LOCALE1
 COPY cron /etc/cron.d/cron
 COPY entrypoint.sh /usr/local/bin
 COPY php.ini /usr/local/etc/php/php.ini

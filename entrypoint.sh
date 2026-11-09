@@ -23,9 +23,17 @@ sed -e "s|/dm|${DOMAINMOD_WEB_ROOT}|g" \
     -e "s|dbPassword123|${DOMAINMOD_PASSWORD}|g" \
     $SAMPLE_CONFIG_FILE > $OUTPUT_CONFIG_FILE
 
-chown -R domainmod:domainmod /var/www/html
+# Optional encrypted database connection settings (DomainMOD 4.24.0+; see the User Guide's Encrypted Database
+# Connections page). Each is written to config.inc.php only when it's set, as a PHP single-quoted string (streamed, so nothing in the value is lost)
+php_quote() { printf '%s' "$1" | sed -e "s/\\\\/\\\\\\\\/g" -e "s/'/\\\\'/g"; }
+if [ -n "${DOMAINMOD_DB_SSL_MODE:-}" ]; then
+    { printf "\$dbsslmode = '"; php_quote "$DOMAINMOD_DB_SSL_MODE"; printf "';\n"; } >> $OUTPUT_CONFIG_FILE
+fi
+if [ -n "${DOMAINMOD_DB_SSL_CA:-}" ]; then
+    { printf "\$dbsslca = '"; php_quote "$DOMAINMOD_DB_SSL_CA"; printf "';\n"; } >> $OUTPUT_CONFIG_FILE
+fi
 
-chmod 777 /var/www/html/temp
+chown -R domainmod:domainmod /var/www/html
 
 service cron start
 
