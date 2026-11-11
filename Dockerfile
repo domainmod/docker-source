@@ -1,7 +1,6 @@
 FROM php:8.2.35-apache
-ARG COMMIT_ID
-ARG BUILD_DATE
-ARG SOFTWARE_VERSION
+# Changing BASE_REFRESH (build-and-push.sh sets it from the month and base-refresh-count) rebuilds every layer
+ARG BASE_REFRESH
 ENV CUSER=domainmod
 ENV LOCALE1="en_CA.UTF-8"
 ENV LOCALE2="en_US.UTF-8"
@@ -31,23 +30,21 @@ ENV LOCALE25="ur_PK UTF-8"
 ENV LOCALE26="vi_VN UTF-8"
 ENV PGID=1000
 ENV PUID=1000
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf \
+RUN echo "Base refresh: ${BASE_REFRESH}" \
+    && echo "ServerName localhost" >> /etc/apache2/apache2.conf \
     && groupadd --gid "${PGID}" -r $CUSER && useradd -u "${PUID}" -r -g $CUSER -d /usr/src/$CUSER -s /sbin/nologin -c "Docker Image User" $CUSER \
     && apt-get update \
-    && apt-get install -y \ 
+    && apt-get install -y \
        cron \
        curl \
        gettext \
        libxml2 \
-       libxml2-dev \
        locales \
        tzdata \
     && docker-php-ext-install \
        gettext \
        mysqli \
-       pdo \
        pdo_mysql \
-       simplexml \
     && apt-get clean -y \
     && rm -Rf /var/lib/apt/lists/*
 RUN sed -i -e "s/# $LOCALE1/$LOCALE1/" /etc/locale.gen \
@@ -59,23 +56,23 @@ RUN sed -i -e "s/# $LOCALE1/$LOCALE1/" /etc/locale.gen \
     && sed -i -e "s/# $LOCALE7/$LOCALE7/" /etc/locale.gen \
     && sed -i -e "s/# $LOCALE8/$LOCALE8/" /etc/locale.gen \
     && sed -i -e "s/# $LOCALE9/$LOCALE9/" /etc/locale.gen \
-    && sed -i -e "s/# $LOCALE10/$LOCALE10/" /etc/locale.gen \ 
-    && sed -i -e "s/# $LOCALE11/$LOCALE11/" /etc/locale.gen \ 
-    && sed -i -e "s/# $LOCALE12/$LOCALE12/" /etc/locale.gen \ 
-    && sed -i -e "s/# $LOCALE13/$LOCALE13/" /etc/locale.gen \ 
-    && sed -i -e "s/# $LOCALE14/$LOCALE14/" /etc/locale.gen \ 
-    && sed -i -e "s/# $LOCALE15/$LOCALE15/" /etc/locale.gen \ 
-    && sed -i -e "s/# $LOCALE16/$LOCALE16/" /etc/locale.gen \ 
-    && sed -i -e "s/# $LOCALE17/$LOCALE17/" /etc/locale.gen \ 
-    && sed -i -e "s/# $LOCALE18/$LOCALE18/" /etc/locale.gen \ 
-    && sed -i -e "s/# $LOCALE19/$LOCALE19/" /etc/locale.gen \ 
-    && sed -i -e "s/# $LOCALE20/$LOCALE20/" /etc/locale.gen \ 
-    && sed -i -e "s/# $LOCALE21/$LOCALE21/" /etc/locale.gen \ 
-    && sed -i -e "s/# $LOCALE22/$LOCALE22/" /etc/locale.gen \ 
-    && sed -i -e "s/# $LOCALE23/$LOCALE23/" /etc/locale.gen \ 
-    && sed -i -e "s/# $LOCALE24/$LOCALE24/" /etc/locale.gen \ 
-    && sed -i -e "s/# $LOCALE25/$LOCALE25/" /etc/locale.gen \ 
-    && sed -i -e "s/# $LOCALE26/$LOCALE26/" /etc/locale.gen \ 
+    && sed -i -e "s/# $LOCALE10/$LOCALE10/" /etc/locale.gen \
+    && sed -i -e "s/# $LOCALE11/$LOCALE11/" /etc/locale.gen \
+    && sed -i -e "s/# $LOCALE12/$LOCALE12/" /etc/locale.gen \
+    && sed -i -e "s/# $LOCALE13/$LOCALE13/" /etc/locale.gen \
+    && sed -i -e "s/# $LOCALE14/$LOCALE14/" /etc/locale.gen \
+    && sed -i -e "s/# $LOCALE15/$LOCALE15/" /etc/locale.gen \
+    && sed -i -e "s/# $LOCALE16/$LOCALE16/" /etc/locale.gen \
+    && sed -i -e "s/# $LOCALE17/$LOCALE17/" /etc/locale.gen \
+    && sed -i -e "s/# $LOCALE18/$LOCALE18/" /etc/locale.gen \
+    && sed -i -e "s/# $LOCALE19/$LOCALE19/" /etc/locale.gen \
+    && sed -i -e "s/# $LOCALE20/$LOCALE20/" /etc/locale.gen \
+    && sed -i -e "s/# $LOCALE21/$LOCALE21/" /etc/locale.gen \
+    && sed -i -e "s/# $LOCALE22/$LOCALE22/" /etc/locale.gen \
+    && sed -i -e "s/# $LOCALE23/$LOCALE23/" /etc/locale.gen \
+    && sed -i -e "s/# $LOCALE24/$LOCALE24/" /etc/locale.gen \
+    && sed -i -e "s/# $LOCALE25/$LOCALE25/" /etc/locale.gen \
+    && sed -i -e "s/# $LOCALE26/$LOCALE26/" /etc/locale.gen \
     && locale-gen \
     && echo "LANG=$LOCALE1" > /etc/default/locale
 ENV LANG=$LOCALE1
@@ -88,6 +85,10 @@ RUN chmod 0644 /etc/cron.d/cron \
     && crontab /etc/cron.d/cron \
     && mkdir -p /var/log/cron \
     && chmod +x /usr/local/bin/entrypoint.sh
+# Set per build, so they come after every RUN and never invalidate the cached layers above
+ARG COMMIT_ID
+ARG BUILD_DATE
+ARG SOFTWARE_VERSION
 LABEL org.opencontainers.image.authors='greg@domainmod.org, greg@chetcuti.com' \
       org.opencontainers.image.created="$BUILD_DATE" \
       org.opencontainers.image.description='DomainMOD is a self-hosted open source application used to manage your domains and other Internet assets in a central location' \
